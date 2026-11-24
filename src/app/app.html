@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+
+<main id="app">
+  <router-outlet></router-outlet>
+</main>
+
+<app-footer></app-footer>
+
+<div id="toastContainer" aria-live="polite">
+  @for (t of toastService.toasts(); track t.id) {
+    <div class="toast" [class]="'toast-' + t.type">
+      <span>{{ t.message }}</span>
+      <button type="button" class="toast-close" (click)="toastService.dismiss(t.id)" aria-label="Dismiss">&times;</button>
+    </div>
+  }
+</div>

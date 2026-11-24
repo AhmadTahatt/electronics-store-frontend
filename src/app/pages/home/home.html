@@ -1,0 +1,152 @@
+<!-- HERO BANNER -->
+<section class="hero-banner">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        @if (hero(); as h) {
+          <span class="hero-tag">{{ h.category || 'Featured' }}</span>
+          <h1 class="hero-title">{{ h.name }}</h1>
+          <p class="hero-desc">{{ h.description || 'Discover our latest featured device.' }}</p>
+        } @else {
+          <span class="hero-tag">Galaxy Store</span>
+          <h1 class="hero-title">Latest <br><span>Electronics.</span></h1>
+          <p class="hero-desc">Smartphones, laptops, tablets and accessories from the brands you trust.</p>
+        }
+        <div class="hero-actions">
+          @if (hero(); as h) {
+            <a [routerLink]="['/product', h.id]" class="btn btn-primary">Explore {{ h.name }}</a>
+          }
+          <a routerLink="/products" class="btn btn-outline">Browse Catalog</a>
+        </div>
+      </div>
+      @if (hero(); as h) {
+        <div class="hero-img-wrap">
+          <img [src]="h.image" (error)="onImageError($event)" [alt]="h.name">
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+@if (loading()) {
+  <div class="container state-box">
+    <i class="fa-solid fa-circle-notch fa-spin"></i> Loading store...
+  </div>
+} @else if (errorMessage()) {
+  <div class="container state-box state-error">
+    <p><i class="fa-solid fa-circle-exclamation"></i> {{ errorMessage() }}</p>
+    <button type="button" class="btn btn-primary btn-sm" (click)="load()">Try again</button>
+  </div>
+} @else {
+  <!-- SHOP BY CATEGORY -->
+  <section class="section section-first">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Shop by Category</h2>
+          <p class="section-subtitle">Engineered precision across device lineups</p>
+        </div>
+      </div>
+      <div class="category-grid">
+        @for (c of categories(); track c.id) {
+          <button type="button" (click)="navigateToCategory(c.name)" class="cat-card">
+            <i class="fa-solid cat-icon" [class]="iconFor(c.name)"></i>
+            <h3 class="cat-name">{{ c.name }}</h3>
+            <p class="cat-sub">Shop now</p>
+          </button>
+        }
+      </div>
+
+      <!-- SHOP BY BRAND -->
+      @if (brands().length) {
+        <div class="brand-row">
+          <span class="brand-label">Top Brands:</span>
+          @for (b of brands(); track b.id) {
+            <button type="button" (click)="navigateToBrand(b.name)" class="btn btn-outline btn-sm">{{ b.name }}</button>
+          }
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- FEATURED -->
+  @if (featuredProducts().length) {
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Featured Ecosystem</h2>
+            <p class="section-subtitle">Handpicked flagship devices</p>
+          </div>
+          <a routerLink="/products" class="section-link">View All <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="products-grid">
+          @for (p of featuredProducts(); track p.id) {
+            <app-product-card [product]="p" />
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- NEW ARRIVALS -->
+  @if (newArrivals().length) {
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">New Arrivals</h2>
+            <p class="section-subtitle">Just landed in our store</p>
+          </div>
+          <a routerLink="/products" class="section-link">Explore New <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="products-grid">
+          @for (p of newArrivals(); track p.id) {
+            <app-product-card [product]="p" />
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- BEST SELLERS -->
+  @if (bestSellers().length) {
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Best-Selling Devices</h2>
+            <p class="section-subtitle">Top-rated customer favorites</p>
+          </div>
+          <a routerLink="/products" class="section-link">Shop Best Sellers <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="products-grid">
+          @for (p of bestSellers(); track p.id) {
+            <app-product-card [product]="p" />
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- PROMO BANNER (built from a real laptop in the store) -->
+  @if (promo(); as p) {
+    <section>
+      <div class="container">
+        <div class="promo-banner">
+          <div>
+            <span class="promo-tag">Laptops</span>
+            <h3 class="promo-title">{{ p.name }}</h3>
+            <p class="promo-desc">
+              {{ p.description || 'Browse our laptops from the top brands.' }}
+            </p>
+            <button type="button" (click)="navigateToCategory('Laptops')" class="btn btn-primary btn-sm">Shop Laptops</button>
+          </div>
+          <div>
+            <img class="promo-img" [src]="p.image" (error)="onImageError($event)" [alt]="p.name">
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+}

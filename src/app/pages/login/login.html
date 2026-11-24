@@ -1,0 +1,48 @@
+<div class="auth-wrap">
+  <div class="auth-card">
+    <span class="hero-tag">Welcome Back</span>
+    <h2 class="auth-title">Log In</h2>
+    <p class="auth-subtitle">Sign in to your account to shop, track your orders, or manage the store.</p>
+
+    @if (errorMessage()) {
+      <div class="alert alert-error" role="alert">
+        <i class="fa-solid fa-circle-exclamation"></i> {{ errorMessage() }}
+      </div>
+    }
+
+    <form (ngSubmit)="onSubmit()" class="auth-form">
+      <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          autocomplete="email"
+          placeholder="you@example.com"
+          class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          autocomplete="current-password"
+          placeholder="••••••••"
+          class="form-control">
+      </div>
+
+      <button type="submit" class="btn btn-dark auth-submit" [disabled]="loading()" [class.btn-disabled]="loading()">
+        {{ loading() ? 'Signing in...' : 'Log In' }}
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      Need an account?
+      <a routerLink="/register">Register here</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="samsung-card">
+  <div>
+    <a class="card-img-wrap" [routerLink]="['/product', product().id]">
+      <img [src]="product().image" (error)="onImageError($event)" [alt]="product().name" loading="lazy">
+      @if (outOfStock()) {
+        <span class="tag-badge tag-out">Out of Stock</span>
+      }
+      @if (product().isNew) {
+        <span class="tag-badge tag-new">NEW</span>
+      }
+    </a>
+    <div class="card-meta">
+      <span class="card-brand">{{ product().brand }}</span>
+      @if (product().rating) {
+        <span><i class="fa-solid fa-star" style="color:#FFB300;"></i> {{ product().rating }}</span>
+      }
+    </div>
+    <a class="card-title" [routerLink]="['/product', product().id]">{{ product().name }}</a>
+    <p class="card-desc">{{ product().description }}</p>
+  </div>
+
+  <div class="card-footer">
+    <div class="card-price-row">
+      <span class="card-price">${{ product().price.toFixed(2) }}</span>
+    </div>
+    <button
+      type="button"
+      (click)="addToCart()"
+      [disabled]="outOfStock()"
+      class="btn btn-primary btn-sm"
+      [class.btn-disabled]="outOfStock()"
+      style="width:100%;">
+      <i class="fa-solid fa-cart-plus"></i> {{ outOfStock() ? 'Unavailable' : 'Add to Cart' }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.section {
+  padding: 2rem 0;
+}
+
+.section-first {
+  padding-top: 4rem;
+}
+
+/* category cards are <button>s (keyboard accessible) */
+.cat-card {
+  font: inherit;
+  color: inherit;
+  width: 100%;
+}
+
+.brand-row {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.brand-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--samsung-text-muted);
+  text-transform: uppercase;
+}
+
+.promo-img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  max-height: 240px;
+  object-fit: cover;
+}
+
+.state-box {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  color: var(--samsung-text-muted);
+}
+
+.state-error {
+  color: #D32F2F;
+}
+
+.state-error p {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}

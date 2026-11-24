@@ -1,0 +1,63 @@
+/* Remove the <app-navbar> wrapper box so the header can stay sticky across the whole page */
+:host {
+  display: contents;
+}
+
+.nav-links a.active {
+  color: var(--samsung-blue);
+}
+
+.account-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-btn {
+  display: inline-flex;
+}
+
+.mobile-drawer a {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.drawer-search {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.drawer-account {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--samsung-border);
+}
+
+/* Switch to the hamburger menu below 1100px so the header never overflows */
+@media (max-width: 1100px) {
+  .nav-links,
+  .search-box,
+  .account-actions {
+    display: none;
+  }
+  .mobile-toggle {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 1101px) {
+  .mobile-drawer {
+    display: none !important;
+  }
+}
+
+/* Keep menu items on one line and give the logo some room */
+.brand-logo {
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+}
+
+.nav-links a {
+  white-space: nowrap;
+}

@@ -1,0 +1,1182 @@
+/* ==========================================
+   1. SAMSUNG DESIGN SYSTEM & CSS VARIABLES
+   ========================================== */
+:root {
+    --samsung-blue: #1428A0;
+    --samsung-blue-hover: #0E1E7B;
+    --samsung-accent: #0B5ED7;
+    --samsung-dark: #111111;
+    --samsung-charcoal: #222222;
+    --samsung-grey: #F7F7F9;
+    --samsung-grey-hover: #EFEFF1;
+    --samsung-border: #E5E5E8;
+    --samsung-text-muted: #666666;
+    --samsung-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    --samsung-shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.12);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-pill: 9999px;
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: #FFFFFF;
+    color: var(--samsung-dark);
+    line-height: 1.5;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #F1F1F1;
+}
+::-webkit-scrollbar-thumb {
+    background: #CCCCCC;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--samsung-blue);
+}
+
+/* ==========================================
+   2. LAYOUT UTILITIES & CONTAINERS
+   ========================================== */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+/* Top Banner */
+.top-banner {
+    background-color: var(--samsung-dark);
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    letter-spacing: 0.025em;
+}
+
+/* Header Navigation */
+.header-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--samsung-border);
+    transition: all 0.3s ease;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.brand-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    color: var(--samsung-dark);
+}
+
+.brand-logo span {
+    color: var(--samsung-blue);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: var(--samsung-blue);
+    transition: color 0.2s ease;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Search input bar */
+.search-box {
+    position: relative;
+    width: 240px;
+}
+
+.search-input {
+    width: 100%;
+    background-color: var(--samsung-grey);
+    border: 1px solid var(--samsung-border);
+    border-radius: var(--radius-pill);
+    padding: 0.5rem 2.25rem 0.5rem 1rem;
+    font-size: 0.75rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+    border-color: var(--samsung-blue);
+    background-color: #FFFFFF;
+}
+
+.search-btn {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--samsung-text-muted);
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    color: var(--samsung-blue);
+}
+
+/* Action Buttons & Badges */
+.icon-btn {
+    position: relative;
+    padding: 0.5rem;
+    color: var(--samsung-dark);
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    background: none;
+    border: none;
+}
+
+.icon-btn:hover {
+    color: var(--samsung-blue);
+}
+
+.badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--samsung-blue);
+    color: #FFFFFF;
+    font-size: 0.625rem;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+    padding: 0.75rem 1.75rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--samsung-blue);
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background-color: var(--samsung-blue-hover);
+    box-shadow: 0 4px 14px rgba(20, 40, 160, 0.3);
+}
+
+.btn-dark {
+    background-color: var(--samsung-dark);
+    color: #FFFFFF;
+}
+
+.btn-dark:hover {
+    background-color: #333333;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border-color: var(--samsung-dark);
+    color: var(--samsung-dark);
+}
+
+.btn-outline:hover {
+    background-color: var(--samsung-dark);
+    color: #FFFFFF;
+}
+
+.btn-sm {
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+}
+
+.btn-disabled {
+    background-color: #E0E0E0 !important;
+    color: #999999 !important;
+    cursor: not-allowed !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Mobile Menu */
+.mobile-toggle {
+    display: none;
+}
+
+.mobile-drawer {
+    display: none;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid var(--samsung-border);
+    padding: 1rem 1.5rem 1.5rem;
+}
+
+.mobile-drawer.active {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* ==========================================
+   3. UI COMPONENTS & CARDS
+   ========================================== */
+.samsung-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--samsung-border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    position: relative;
+}
+
+.samsung-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--samsung-shadow-hover);
+}
+
+.card-img-wrap {
+    position: relative;
+    background-color: var(--samsung-grey);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.samsung-card:hover .card-img-wrap img {
+    transform: scale(1.05);
+}
+
+.tag-badge {
+    position: absolute;
+    top: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.625rem;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+}
+
+.tag-new {
+    right: 0.5rem;
+    background-color: var(--samsung-dark);
+    color: #FFFFFF;
+}
+
+.tag-out {
+    left: 0.5rem;
+    background-color: #D32F2F;
+    color: #FFFFFF;
+}
+
+.card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.6875rem;
+    color: var(--samsung-text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.card-brand {
+    color: var(--samsung-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.card-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--samsung-dark);
+    margin-bottom: 0.25rem;
+    cursor: pointer;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-title:hover {
+    color: var(--samsung-blue);
+}
+
+.card-desc {
+    font-size: 0.75rem;
+    color: var(--samsung-text-muted);
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-footer {
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--samsung-border);
+}
+
+.card-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.card-price {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--samsung-dark);
+}
+
+.compare-checkbox {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.6875rem;
+    color: var(--samsung-text-muted);
+    cursor: pointer;
+}
+
+.compare-checkbox input {
+    margin-right: 0.35rem;
+    accent-color: var(--samsung-blue);
+}
+
+/* Hero Banner */
+.hero-banner {
+    background-color: var(--samsung-grey);
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--samsung-border);
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.hero-tag {
+    display: inline-block;
+    background-color: var(--samsung-blue);
+    color: #FFFFFF;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-pill);
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-size: 3.25rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: var(--samsung-dark);
+    margin-bottom: 1rem;
+}
+
+.hero-title span {
+    color: var(--samsung-blue);
+}
+
+.hero-desc {
+    font-size: 1rem;
+    color: var(--samsung-text-muted);
+    max-width: 480px;
+    margin-bottom: 1.75rem;
+}
+
+.hero-img-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-img-wrap img {
+    max-height: 420px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--samsung-shadow-hover);
+}
+
+/* Section Titles */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+    font-size: 0.75rem;
+    color: var(--samsung-text-muted);
+    margin-top: 0.25rem;
+}
+
+.section-link {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--samsung-blue);
+}
+
+.section-link:hover {
+    text-decoration: underline;
+}
+
+/* Categories Grid */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.cat-card {
+    background-color: var(--samsung-grey);
+    border: 1px solid var(--samsung-border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.cat-card:hover {
+    background-color: var(--samsung-grey-hover);
+    transform: translateY(-3px);
+    border-color: var(--samsung-blue);
+}
+
+.cat-icon {
+    font-size: 2rem;
+    color: var(--samsung-blue);
+    margin-bottom: 0.75rem;
+}
+
+.cat-name {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--samsung-dark);
+}
+
+.cat-sub {
+    font-size: 0.6875rem;
+    color: var(--samsung-text-muted);
+    margin-top: 0.25rem;
+}
+
+/* Promo Banner */
+.promo-banner {
+    background-color: var(--samsung-dark);
+    color: #FFFFFF;
+    border-radius: 24px;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.promo-tag {
+    color: #64B5F6;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.promo-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0.5rem 0 1rem;
+}
+
+.promo-desc {
+    font-size: 0.875rem;
+    color: #CCCCCC;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Grid layouts */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Catalog Page Layout */
+.catalog-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.filter-sidebar {
+    background-color: var(--samsung-grey);
+    border: 1px solid var(--samsung-border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--samsung-border);
+    padding-bottom: 0.75rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+}
+
+.filter-reset {
+    font-size: 0.75rem;
+    color: var(--samsung-blue);
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-weight: 600;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--samsung-charcoal);
+}
+
+.form-control {
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid var(--samsung-border);
+    border-radius: var(--radius-md);
+    padding: 0.6rem 0.75rem;
+    font-size: 0.75rem;
+    outline: none;
+}
+
+.form-control:focus {
+    border-color: var(--samsung-blue);
+}
+
+/* Spec Table */
+.spec-table-wrap {
+    background-color: var(--samsung-grey);
+    border: 1px solid var(--samsung-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 1.5rem;
+}
+
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.75rem;
+    text-align: left;
+}
+
+.spec-table th, .spec-table td {
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid var(--samsung-border);
+}
+
+.spec-table th {
+    background-color: #EFEFF2;
+    font-weight: 700;
+    color: var(--samsung-charcoal);
+    width: 30%;
+}
+
+.spec-table td {
+    color: var(--samsung-dark);
+    font-weight: 500;
+}
+
+/* Product Comparison Matrix */
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFFFFF;
+    border: 1px solid var(--samsung-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    font-size: 0.75rem;
+}
+
+.compare-table th, .compare-table td {
+    padding: 1rem;
+    border: 1px solid var(--samsung-border);
+    text-align: center;
+}
+
+.compare-table th:first-child, .compare-table td:first-child {
+    text-align: left;
+    background-color: var(--samsung-grey);
+    font-weight: 700;
+    width: 20%;
+}
+
+/* Cart & Checkout Layout */
+.cart-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 2rem;
+}
+
+.cart-item {
+    background-color: #FFFFFF;
+    border: 1px solid var(--samsung-border);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cart-item-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cart-item-img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    background-color: var(--samsung-grey);
+}
+
+.stepper {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--samsung-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background-color: var(--samsung-grey);
+}
+
+.stepper-btn {
+    background: none;
+    border: none;
+    padding: 0.35rem 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.stepper-btn:hover {
+    background-color: #E0E0E0;
+}
+
+.stepper-val {
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.summary-card {
+    background-color: var(--samsung-grey);
+    border: 1px solid var(--samsung-border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--samsung-text-muted);
+}
+
+.summary-total {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--samsung-dark);
+    border-top: 1px solid var(--samsung-border);
+    padding-top: 0.75rem;
+}
+
+/* Admin Portal Layout */
+.admin-nav-tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--samsung-border);
+    margin-bottom: 2rem;
+    overflow-x: auto;
+}
+
+.admin-tab-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    color: var(--samsung-text-muted);
+    white-space: nowrap;
+}
+
+.admin-tab-btn.active {
+    border-color: var(--samsung-blue);
+    color: var(--samsung-blue);
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.metric-card {
+    background-color: var(--samsung-grey);
+    border: 1px solid var(--samsung-border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+}
+
+.metric-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--samsung-text-muted);
+}
+
+.metric-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--samsung-dark);
+    margin-top: 0.25rem;
+}
+
+.admin-table-wrap {
+    background-color: #FFFFFF;
+    border: 1px solid var(--samsung-border);
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.75rem;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: var(--samsung-grey);
+    padding: 0.75rem 1rem;
+    font-weight: 700;
+    border-bottom: 1px solid var(--samsung-border);
+}
+
+.admin-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--samsung-border);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 1rem;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-box {
+    background-color: #FFFFFF;
+    border-radius: var(--radius-lg);
+    max-width: 540px;
+    width: 100%;
+    padding: 1.5rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Toasts */
+#toastContainer {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    pointer-events: none;
+}
+
+.toast {
+    pointer-events: auto;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-width: 260px;
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-info { background-color: var(--samsung-blue); }
+.toast-success { background-color: var(--samsung-dark); border-left: 4px solid var(--samsung-accent); }
+.toast-error { background-color: #D32F2F; }
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Footer */
+footer {
+    background-color: var(--samsung-grey);
+    border-top: 1px solid var(--samsung-border);
+    margin-top: auto;
+    padding: 4rem 0 2rem;
+    font-size: 0.75rem;
+    color: var(--samsung-text-muted);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.footer-col h4 {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--samsung-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-col a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================
+   4. RESPONSIVE BREAKPOINTS (MEDIA QUERIES)
+   ========================================== */
+@media (max-width: 1024px) {
+    .hero-grid, .promo-banner {
+        grid-template-columns: 1fr;
+    }
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .catalog-layout {
+        grid-template-columns: 1fr;
+    }
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .cart-grid {
+        grid-template-columns: 1fr;
+    }
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links, .search-box {
+        display: none;
+    }
+    .mobile-toggle {
+        display: block;
+    }
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-title {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   5. AUTH PAGES (Login / Register)
+   ========================================== */
+.auth-wrap {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    width: 100%;
+}
+
+.auth-wrap-wide {
+    max-width: 460px;
+}
+
+.auth-card {
+    background: var(--samsung-grey);
+    border: 1px solid var(--samsung-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-align: center;
+}
+
+.auth-card .hero-tag {
+    margin-bottom: 0.75rem;
+}
+
+.auth-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.auth-subtitle {
+    font-size: 0.75rem;
+    color: var(--samsung-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.auth-submit {
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+.auth-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--samsung-border);
+    font-size: 0.75rem;
+    color: var(--samsung-text-muted);
+}
+
+.auth-footer a {
+    color: var(--samsung-blue);
+    font-weight: 700;
+}
+
+.alert {
+    padding: 0.65rem;
+    border-radius: var(--radius-md);
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.alert i {
+    margin-right: 0.35rem;
+}
+
+.alert-error {
+    background: #FFEBEE;
+    color: #D32F2F;
+    border: 1px solid #FFCDD2;
+}
+
+.alert-success {
+    background: #E8F5E9;
+    color: #2E7D32;
+    border: 1px solid #C8E6C9;
+}
+
+.footer-text {
+    cursor: default;
+}
+
+/* keyboard focus + button-based cards */
+.cat-card {
+    font: inherit;
+    color: inherit;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 2px solid var(--samsung-accent);
+    outline-offset: 2px;
+}
+
+.btn[disabled] {
+    pointer-events: none;
+}
+
+/* ==========================================
+   ADMIN PANEL
+   ========================================== */
+.admin-toolbar { display: flex; gap: 0.75rem; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; }
+.toolbar-search { max-width: 320px; }
+.inline-form { display: flex; gap: 0.75rem; align-items: center; flex: 1; max-width: 520px; }
+.admin-two-col { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; align-items: start; }
+.admin-subtitle { font-size: 0.875rem; font-weight: 800; margin-bottom: 0.75rem; }
+.cell-product { display: flex; align-items: center; gap: 0.75rem; min-width: 200px; }
+.admin-thumb { width: 44px; height: 44px; object-fit: contain; background: var(--samsung-grey); border-radius: var(--radius-sm); border: 1px solid var(--samsung-border); }
+.admin-thumb-lg { width: 90px; height: 90px; margin-bottom: 0.5rem; }
+.row-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.empty-cell { text-align: center; color: var(--samsung-text-muted); padding: 1.5rem 1rem !important; }
+.status-pill { display: inline-block; padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-size: 0.6875rem; font-weight: 700; background: #EEE; color: #444; }
+.pill-good { background: #E8F5E9; color: #2E7D32; }
+.pill-bad { background: #FFEBEE; color: #D32F2F; }
+.status-select { padding: 0.35rem 0.5rem; min-width: 110px; }
+.btn-danger { color: #D32F2F; border-color: #FFCDD2; }
+.btn-danger:hover { background: #FFEBEE; }
+.modal-title { font-size: 1.125rem; font-weight: 800; margin-bottom: 1rem; }
+.modal-line { font-size: 0.8125rem; color: var(--samsung-text-muted); margin-bottom: 0.25rem; }
+.modal-table { margin: 1rem 0; }
+.modal-total { font-weight: 800; text-align: right; margin-bottom: 1rem; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1.25rem; }
+.form-stack { display: flex; flex-direction: column; gap: 0.9rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.check-row { display: flex; gap: 0.5rem; align-items: center; font-size: 0.75rem; font-weight: 600; }
+.spec-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 0.5rem; margin-bottom: 0.5rem; }
+.spec-add { align-self: flex-start; }
+@media (max-width: 900px) {
+    .admin-two-col { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+    .form-row, .spec-row { grid-template-columns: 1fr; }
+}

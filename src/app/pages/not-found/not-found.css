@@ -1,0 +1,26 @@
+.not-found {
+  text-align: center;
+  padding: 6rem 1.5rem;
+}
+.code {
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: var(--samsung-blue);
+  line-height: 1;
+}
+h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0.75rem 0 0.5rem;
+}
+.text {
+  color: var(--samsung-text-muted);
+  margin-bottom: 1.75rem;
+}
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
